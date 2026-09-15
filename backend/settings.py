@@ -27,9 +27,14 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = 'django-insecure-%cow&3nxk94$-qyg$)578_0s%q(g$km%v=nds=59u$rlisv4v6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'django-student-management-system-1-xzpc.onrender.com',
+]
+
 
 
 # Application definition
