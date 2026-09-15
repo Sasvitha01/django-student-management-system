@@ -92,7 +92,6 @@
 
     <h1>Student Management System</h1>
 
-    <!-- ADD / UPDATE STUDENT -->
     <div class="card">
 
         <h2 id="formTitle">Add Student</h2>
@@ -138,7 +137,6 @@
     </div>
 
 
-    <!-- STUDENT LIST -->
     <div class="card">
 
         <h2>Student List</h2>
@@ -154,7 +152,9 @@
 
 <script>
 
-    const API_URL = "http://127.0.0.1:8000/api/students/";
+    // LIVE RENDER BACKEND API
+    const API_URL =
+        "https://django-student-management-system-1-xzpc.onrender.com/api/students/";
 
     let editingStudentId = null;
 
@@ -163,7 +163,15 @@
     function loadStudents() {
 
         fetch(API_URL)
-            .then(response => response.json())
+            .then(response => {
+
+                if (!response.ok) {
+                    throw new Error("Unable to load students");
+                }
+
+                return response.json();
+
+            })
             .then(data => {
 
                 const studentList =
